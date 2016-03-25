@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="default" class="ComplexMatrix2x2"/>
+
+    <bean id="matrix1" class="ComplexMatrix2x2">
+        <constructor-arg ref="complexNumber1"/>
+    </bean>
+    <bean id="complexNumber1" class="ComplexNumber">
+        <constructor-arg name="re" value="1.0"/>
+        <constructor-arg name="im" value="1.0"/>
+    </bean>
+
+    <bean id="matrix4" class="ComplexMatrix2x2">
+        <constructor-arg ref="complexNumber1"/>
+        <constructor-arg ref="complexNumber2"/>
+        <constructor-arg ref="complexNumber3"/>
+        <constructor-arg ref="complexNumber4"/>
+    </bean>
+    <bean id="complexNumber2" class="ComplexNumber">
+        <constructor-arg name="re" value="2.0"/>
+        <constructor-arg name="im" value="2.0"/>
+    </bean>
+    <bean id="complexNumber3" class="ComplexNumber">
+        <constructor-arg name="re" value="3.0"/>
+        <constructor-arg name="im" value="3.0"/>
+    </bean>
+    <bean id="complexNumber4" class="ComplexNumber">
+        <constructor-arg name="re" value="4.0"/>
+        <constructor-arg name="im" value="4.0"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,2 @@
+1.Добавлено логирование в ArticleItemServlet для метода getArticleByTitle. Для этого в ArticlesRepository метод был изменен на нестатический.(before advice)
+2.Сделан запрет добавления изображения с пустым url в PhotoServlet. Аналогичное изменение метода addImage в PhotoRepository на нестатический.(around advice)

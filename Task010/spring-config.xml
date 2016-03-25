@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="curiosity" class="Curiosity"/>
+
+    <bean id="earth" class="Earth"/>
+
+    <bean id="iss" class="ISS"/>
+
+    <bean id="mars" class="Mars"/>
+
+    <bean id="quasar" class="Quasar"/>
+
+    <bean id="sirius" class="Sirius"/>
+
+    <bean id="sun" class="Sun"/>
+
+    <bean id="voyager" class="Voyager"/>
+
+</beans>
