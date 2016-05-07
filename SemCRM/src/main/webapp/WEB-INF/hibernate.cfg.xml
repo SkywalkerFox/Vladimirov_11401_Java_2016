@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/SemCRM</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="ru.kpfu.itis.PAVEL_VLADIMIROV.entity.User"/>
+        <mapping class="ru.kpfu.itis.PAVEL_VLADIMIROV.entity.RequestedSupplies"/>
+        <mapping class="ru.kpfu.itis.PAVEL_VLADIMIROV.entity.SentSupplies"/>
+        <mapping class="ru.kpfu.itis.PAVEL_VLADIMIROV.entity.Activities"/>
+
+    </session-factory>
+</hibernate-configuration>
