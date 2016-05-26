@@ -18,7 +18,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Qualifier("userRepository")
     @Autowired
-    UserRepository userRepository;
+    public UserRepository userRepository;
 
     @Transactional
     public void addUser(User user) {

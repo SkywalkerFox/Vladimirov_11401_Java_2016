@@ -18,7 +18,7 @@ public class SentSuppliesServiceImpl implements SentSuppliesService {
 
     @Qualifier("sentSuppliesRepository")
     @Autowired
-    SentSuppliesRepository sentSuppliesRepository;
+    public SentSuppliesRepository sentSuppliesRepository;
 
     @Override
     public void addSupply(SentSupplies supply) {
