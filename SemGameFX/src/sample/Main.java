@@ -1,6 +1,7 @@
 package sample;
 
 import com.sun.javafx.geom.Vec2f;
+import javafx.animation.PathTransition;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -14,6 +15,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.CubicCurveTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -23,18 +27,23 @@ import static java.lang.Math.*;
 public class Main extends Application {
 
     private static Stage stage;
+    private static  Scene scene;
     private Timeline timeline;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         stage.setTitle("My Awesome Game");
-        stage.setScene(createScene());
+        scene = createScene();
+
+        stage.setScene(scene);
         stage.show();
         PauseTransition delay = new PauseTransition(Duration.seconds(15));
         delay.setOnFinished( event -> stage.close() );
         delay.play();
     }
+
+
 
     private int windowWidth = 600;
     private int windowHeight = 600;
@@ -46,16 +55,16 @@ public class Main extends Application {
         }
         root.getChildren().add(points);
 
-        timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.setAutoReverse(true);
+//        timeline = new Timeline();
+//        timeline.setCycleCount(Timeline.INDEFINITE);
+//        timeline.setAutoReverse(true);
 
         //KeyValue keyValueX = new KeyValue();
 
         return new Scene(root, windowWidth, windowHeight);
     }
 
-    private Random random = new Random(); // нам нужен рандом!!
+    private Random random = new Random();
 
     private ImageView createTarget() {
         Image targetImage = new Image("target.png", 50, 50, false, false);
@@ -93,7 +102,21 @@ public class Main extends Application {
             public void handle(MouseEvent event) {
                 points.setText("Points " +  ++pointsCount);
                 node.setLayoutX(random.nextInt(windowWidth - 100));
-                node.setLayoutY(random.nextInt(windowWidth - 50));
+                node.setLayoutY(random.nextInt(windowWidth - 100));
+
+                Path path = new Path();
+                int destX = random.nextInt(windowWidth - 100);
+                int destY = random.nextInt(windowWidth - 100);
+                path.getElements().add(new MoveTo(destX, destY));
+                path.getElements().add(new CubicCurveTo(destX, destY, 0, 0, destX, destY));
+                PathTransition pathTransition = new PathTransition();
+                pathTransition.setDuration(Duration.millis(4000));
+                pathTransition.setPath(path);
+                pathTransition.setNode(node);
+                pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+                pathTransition.setCycleCount(Timeline.INDEFINITE);
+                pathTransition.setAutoReverse(true);
+                pathTransition.play();
             }
         });
 
