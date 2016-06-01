@@ -36,6 +36,7 @@ public class AuthController {
     @FXML
     public void startApp() {
         mainApp.initRootLayout();
+        mainApp.showAllSupplies();
     }
 
     @FXML

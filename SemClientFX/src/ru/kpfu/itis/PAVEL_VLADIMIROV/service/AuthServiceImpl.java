@@ -17,7 +17,7 @@ public class AuthServiceImpl implements AuthService {
         MultiValueMap<String, Object> loginParameters = new LinkedMultiValueMap<>();
         loginParameters.add("email", email);
         loginParameters.add("password", password);
-
+        System.out.println(loginParameters.size());
         return restTemplate.postForEntity("http://localhost:8080/api/login", loginParameters, Boolean.class);
     }
 }

@@ -15,9 +15,6 @@
         <Button fx:id="submit" layoutX="282.0" layoutY="337.0" mnemonicParsing="false" onAction="#logIn" text="Войти"/>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="212.0" layoutY="36.0" pickOnBounds="true"
                    preserveRatio="true">
-            <!--image>
-                <Image url="@images/logo.png" />
-            </image-->
         </ImageView>
         <TextField fx:id="error" layoutX="213.0" layoutY="385.0" prefHeight="37.0" prefWidth="204.0"
                    text="invalid login or password" visible="false"/>
